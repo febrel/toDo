@@ -1,0 +1,52 @@
+<!doctype html>
+
+<title>{% block title  %} {% endblock %} -Todo List </title>
+
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+       <div class="mx-auto order-0">
+           <a class="navbar-brand mx-auto" href="#">Todo List</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+       </div>
+
+       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+           <ul class="navbar-nav ml-auto" >
+             {% if g.user %}
+
+             <span class="navbar-brand text-success font-italic">{{ g.user[1] }}</span>
+
+              <a href="{{url_for('auth.logout')}} "><img class="user-img_2" src="{{url_for('static', filename='img/close.svg')}}"></a> </li>
+
+              {% else %}
+
+               <li class="nav-item">
+                   <a class="btn btn-warning mr-sm-4"   href="{{url_for('auth.register')}} ">Registar</a> </li>
+               </li>
+
+               <li class="nav-item">
+                   <a class="btn btn-success "  href="{{url_for('auth.login')}} ">Iniciar Sesión</a>
+               </li>
+               {% endif %}
+           </ul>
+       </div>
+</nav>
+
+
+<section class="content">
+  <header>
+    {% block header %} {% endblock %}
+  </header>
+
+
+
+  {% block content %} {% endblock %}
+</section>

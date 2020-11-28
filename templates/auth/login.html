@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<!-- Los iconos tipo Solid de Fontawesome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+
+{% with messages= get_flashed_messages() %}
+{% if messages %}
+{% for men in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p>{{messages}}</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith%}
+
+<h1 class="display-4 text-white text-center">{% block title %} Iniciar Sesión{% endblock %}</h1>
+
+{% endblock%}
+
+
+{% block content %}
+
+
+
+
+
+<div class="col-md-4 offset-md-4 text-center" >
+  <div class="card card-body center-block">
+
+    <div class="col-xs-12">
+      <div class="col-12 user-img ">
+              <img src="https://www.flaticon.es/svg/static/icons/svg/889/889648.svg" />
+    </div>
+    </div>
+  <form method="post">
+
+    <div class="form-group " id="user-group">
+    <input type="text" class="form-control" placeholder="Username"  name="username" id="username" autocomplete="off" required>
+    </div>
+
+    <div class="form-group" id="contrasena-group">
+    <input class="form-control" type="password" placeholder="Password" name="password" id="password" required>
+    </div>
+
+
+    <div class="form-group">
+    <input class="btn btn-success btn-block" type="submit"  value="Ingresar">
+    </div>
+
+
+  </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

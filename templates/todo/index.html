@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% with messages= get_flashed_messages() %}
+{% if messages %}
+{% for men in messages %}
+
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p>{{messages}}</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith%}
+
+<h1 class="display-4 text-white text-center">{% block title %} ToDos {% endblock %}</h1>
+
+
+{% if g.user %}
+
+  <div class="col-xs-4">>
+  <a class="btn btn-success " class="action" href="{{url_for('todo.create')}}">Nuevo</a>
+  </div>
+
+
+{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+
+<div class="container mt-1  ">
+  <div class="card card-body">
+
+
+
+  <ul class=" list-unstyled">
+
+
+    {% for todo in todos %}
+
+
+      <div class="col clearfix">
+      <li >
+
+
+          <h2 class="float-left">{% if todo[3] == 1 %}
+          <strike class="float-left"> {{ todo[1] }} </strike>
+          {% else %}
+
+          {{ todo[1]}}
+
+          {% endif %}
+        </h2>
+
+        <div class="float-right h4"> {{ todo[4].strftime('%Y-%m-%d') }} </div>
+
+        </div>
+
+        <div class="col clearfix">
+        <a class="action float-right" href="{{url_for('todo.update', id=todo[0]) }}"><img class="user-img_2" src="https://www.flaticon.es/svg/static/icons/svg/1160/1160515.svg" ></a> </li>
+
+        <!-- <a  class="action float-right  btn btn-primary" href="{{url_for('todo.update', id=todo[0]) }}">Editar</a> -->
+        </div>
+
+
+
+      </li>
+
+      {% if not loop.last %}
+        <hr>
+      {% endif %}
+
+    {% endfor %}
+
+
+  </ul>
+
+    </div>
+  </div>
+
+
+<br> </br>
+
+
+{% endblock %}
