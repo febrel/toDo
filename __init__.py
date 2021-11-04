@@ -22,11 +22,6 @@ def create_app():
     app.register_blueprint(auth.bp)
     app.register_blueprint(todo.bp)
 
-    # Crear ruta de pruebas
-    @app.route("/hola")
-    def hola():
-        return "Hola Mijines"
-
 
     if __name__ == '__main__':
         app.run(port=5000, debug=True)
