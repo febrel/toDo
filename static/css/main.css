@@ -14,25 +14,9 @@ body{
     height: 42px;
     font-size: 14px;
     border:0;
-    padding-left: 54px;
     border-radius: 5px;
 }
 
-.form-group::before{
-    font-family: "Font Awesome\ 5 Free";
-    position: absolute;
-    left: 28px;
-    font-size: 22px;
-    padding-top:4px;
-}
-
-.form-group#user-group::before{
-    content: "\f007";
-}
-
-.form-group#contrasena-group::before{
-    content: "\f023";
-}
 
 
 .user-img{
