@@ -22,17 +22,17 @@
            <ul class="navbar-nav ml-auto" >
              {% if g.user %}
 
-             <span class="navbar-brand text-success font-italic">{{ g.user[1] }}</span>
+             <span class="navbar-brand text-success font-italic">{{g.user[1] }}</span>
 
-              <a href="{{url_for('auth.logout')}} "><img class="user-img_2" src="{{url_for('static', filename='img/close.svg')}}"></a> </li>
+              <a href="{{url_for('auth.logout')}} "><img class="navbar-brand user-img_2" src="{{url_for('static', filename='img/close.svg')}}"></a> </li>
 
               {% else %}
 
-               <li class="nav-item">
-                   <a class="btn btn-warning mr-sm-4"   href="{{url_for('auth.register')}} ">Registar</a> </li>
+               <li class="navbar-brand">
+                   <a class="btn btn-warning mr-sm-1"   href="{{url_for('auth.register')}} ">Registar</a> </li>
                </li>
 
-               <li class="nav-item">
+               <li class="navbar-brand">
                    <a class="btn btn-success "  href="{{url_for('auth.login')}} ">Iniciar Sesión</a>
                </li>
                {% endif %}

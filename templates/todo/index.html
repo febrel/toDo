@@ -18,7 +18,7 @@
 {% endif %}
 {% endwith%}
 
-<h1 class="display-4 text-white text-center">{% block title %} ToDos {% endblock %}</h1>
+<h1 class="display-5 text-white text-center">{% block title %} ToDos {% endblock %}</h1>
 
 
 {% if g.user %}
@@ -36,7 +36,7 @@
 
 <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 
-<div class="container mt-1  ">
+<div class="container mt-1 ">
   <div class="card card-body">
 
 
@@ -46,21 +46,21 @@
 
       <div class="col clearfix">
       <li >
-          <h2 class="float-left">{% if todo[3] == 1 %}
+          <h4 class="float-left">{% if todo[3] == 1 %}
           <strike class="float-left"> {{ todo[1] }} </strike>
           {% else %}
 
           {{ todo[1]}}
 
           {% endif %}
-        </h2>
+        </h4>
 
-        <div class="float-right h4"> {{ todo[4].strftime('%Y-%m-%d') }} </div>
+        <div class="float-right h5"> {{ todo[4].strftime('%Y-%m-%d') }} </div>
 
         </div>
 
         <div class="col clearfix">
-        <a class="action float-right" href="{{url_for('todo.update', id=todo[0]) }}"><img class="user-img_2" src="{{url_for('static', filename='img/editar.svg')}}" ></a> </li>
+        <a class="action float-right" href="{{url_for('todo.update', id=todo[0]) }}"><img class="user-img_3" src="{{url_for('static', filename='img/editar.svg')}}" ></a> </li>
 
         <!-- <a  class="action float-right  btn btn-primary" href="{{url_for('todo.update', id=todo[0]) }}">Editar</a> -->
         </div>

@@ -5,11 +5,6 @@ body{
 
 }
 
-.user-img_2{
-    width: 45px;
-    height: 45px;
-}
-
 .form-group input{
     height: 42px;
     font-size: 14px;
@@ -18,10 +13,19 @@ body{
 }
 
 
-
 .user-img{
     margin-top: 15px;
     margin-bottom: 25px;
+}
+
+.user-img_2{
+    width: 45px;
+    height: 45px;
+}
+
+.user-img_3{
+    width: 45px;
+    height: 45px;
 }
 
 .user-img img{
