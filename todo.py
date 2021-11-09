@@ -34,7 +34,6 @@ def create():
         else:
 
             db, c = get_db()
-            print()
             c.execute('INSERT INTO todo (descripcion, complete, created_by ) VALUES (%s, %s, %s)' , (description, False, g.user[0]))
 
             db.commit()
